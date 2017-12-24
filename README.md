@@ -17,4 +17,17 @@ doc.add(new NumericField("date",Field.Store.YES,true).setLongValue(dates[i].getT
 ```
 
 
-#### 二、 检索
+#### 二、 删除索引
+
+##### 1、通过writer来删除
+```java
+writer.deleteDocuments(new Term("id","1"));
+writer.commit();
+```
+
+##### 2、通过reader来删除
+```java
+reader.deleteDocuments(new Term("id","1"));
+reader.close();//如果用Reader来删除的话，当前reader对象可以判断出已删除的索引，但是如果希望其他reader也能识别出来，就需要commit
+```
+
