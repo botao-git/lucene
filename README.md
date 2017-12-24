@@ -64,7 +64,7 @@ writer.commit();
 ##### 2、通过reader来删除
 ```java
 reader.deleteDocuments(new Term("id","1"));
-reader.close();//如果用Reader来删除的话，当前reader对象可以判断出已删除的索引，但是如果希望其他reader也能识别出来，就需要commit
+reader.close();//用Reader来删除的话，当前reader对象可识别出已删除的索引，但如果希望其他reader也能识别出来，就需要commit
 ```
 
 #### 三、 恢复删除的索引
