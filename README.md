@@ -101,3 +101,13 @@ writer = new IndexWriter(directory,indexWriterConfig,standardAnalyzer);
 writer.forceMergeDeletes();
 ```
 
+#### 六、 检索部分
+
+##### 1、TermQuery
+```java
+IndexReader reader = IndexReader.open(directory);
+IndexSearcher searcher = new IndexSearcher(reader);
+TermQuery query = new TermQuery(new Term("email","test0@test.com"));
+TopDocs tds = searcher.search(query, 10);
+```
+
